@@ -1,10 +1,9 @@
 <?php require "include/top_header.php"; ?>
 <?php require "include/header.php"; ?>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<div class="content-container">
     <?php require "include/navbar.php"; ?>
-        <div class="container-fluid">
+    <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
                     <span class="page-title red">

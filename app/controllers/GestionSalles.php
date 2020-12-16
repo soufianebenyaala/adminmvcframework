@@ -1,5 +1,5 @@
 <?php
-class gestionsalle extends Controller {
+class GestionSalles extends Controller {
     public function __construct() {
         //$this->userModel = $this->model('User');
     }
