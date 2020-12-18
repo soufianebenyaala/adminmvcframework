@@ -1,15 +1,16 @@
 <?php
 class GestionMembres extends Controller {
     public function __construct() {
-        //$this->userModel = $this->model('User');
+       $this->userModel = $this->model('gestionmembre');
     }
 
     public function gestionmembre() {
         $data = [
-            'title' => 'Home page'
+            'getdata' => ''
         ];
+        $data['getdata'] = $this->userModel->affichemembreData();
 
-        $this->view('gestion_membre', $data);
+        $this->view('affiche_membre', $data);
     }
   
 }

@@ -21,31 +21,29 @@
                         <table id="example" class="table table-striped" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>id avis</th>
+                                    <th>id membre</th>
+                                    <th>id salle</th>
+                                    <th>note</th>
+                                    <th>note</th>
+                                    <th>date</th>
+                                    <th>message</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011/07/25</td>
-                                    <td>$170,750</td>
-                                </tr>
+                            <?php 
+                                foreach( $data['getdata'] as $tab){
+                                    echo '<tr>';
+                                    echo '<td>'.$tab->id_avis .'</td>';
+                                    echo '<td>'.$tab->id_membre.'</td>';
+                                    echo '<td>'.$tab->id_salle.'</td>';
+                                    echo '<td>'.$tab->note.'</td>';
+                                    echo '<td>'.$tab->date.'</td>';
+                                    echo '<td>'.$tab->messege.'</td>';
+                                    echo "<td><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></td>";
+                                    echo '</tr>';
+                                }
+                                ?>
                             </tbody>
                         </table>
                         <nav class="table-pagination">

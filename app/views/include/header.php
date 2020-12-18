@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="submenu">
-            <a href="<?=URLROOT; ?>GestionProduits/gestionproduit">
+            <a href="<?=URLROOT; ?>GestionProduits/gestionproduits">
                 <div>
                     <i class="menu-icon fa fa-file-text-o"></i>
                     <span class="menu-title">Gestion des produits</span>
@@ -38,7 +38,7 @@
         </li>
   
         <li class="submenu">
-            <a href="<?=URLROOT; ?>GestionAvis/gestionavis">
+            <a href="<?=URLROOT; ?>GestionAviss/gestionavis">
                 <div>
                     <i class="menu-icon fa fa-file-text-o"></i>
                     <span class="menu-title">Gestion des avis</span>

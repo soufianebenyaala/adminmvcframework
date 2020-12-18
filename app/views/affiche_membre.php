@@ -21,31 +21,43 @@
                         <table id="example" class="table table-striped" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>id membre</th>
+                                    <th>first name</th>
+                                    <th>last name</th>
+                                    <th>pseudo</th>
+                                    <th>email</th>
+                                    <th>addresse</th>
+                                    <th>zip code</th>
+                                    <th>country</th>
+                                    <th>city</th>
+                                    <th>phone</th>
+                                    <th>sexe</th>
+                                    <th>verify account</th>
+                                    <th>delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011/07/25</td>
-                                    <td>$170,750</td>
-                                </tr>
+                            <?php 
+                                foreach( $data['getdata'] as $tab){
+                                    echo '<tr>';
+                                    echo '<td>'.$tab->id_membre.'</td>';
+                                    echo '<td>'.$tab->first_name.'</td>';
+                                    echo '<td>'.$tab->last_name.'</td>';
+                                    echo '<td>'.$tab->pseudo.'</td>';
+                                    echo '<td>'.$tab->email.'</td>';
+                                    echo '<td>'.$tab->addresse.'</td>';
+                                    echo '<td>'.$tab->zip_code.'</td>';
+                                    echo '<td>'.$tab->pays .'</td>';
+                                    echo '<td>'.$tab->ville.'</td>';
+                                    echo '<td>'.$tab->telephone.'</td>';
+                                    if($tab->sexe == 'H'){echo '<td>Homme</td>';}else{echo '<td>Femme</td>';}
+                                    
+                                    echo '<td>'.$tab->verifyAccount.'</td>';
+                                    echo "<td><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></td>";
+                                    echo '</tr>';
+                                }
+                                ?>
+
                             </tbody>
                         </table>
                         <nav class="table-pagination">
