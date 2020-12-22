@@ -268,15 +268,13 @@ class GestionSalles extends Controller {
             ];
 
             $capacityValidation = "/^[0-9]*$/";
-            $pseudoValidation = "/^[a-zA-Z0-9]*$/";
+            $pseudoValidation = "/^[a-zA-Z0-9' ]*$/";
             $nameValidation = "/^[a-zA-Z' ]*$/";
             $passwordValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
 
             //Validate title on letters
             if (empty($data['title'])){ 
                 $data['titleEORRE'] = 'Please enter title.';
-            }elseif (!preg_match($pseudoValidation, $data['title'])) {
-                $data['titleEORRE'] = 'title can only contain letters and numbre .';
             }
 
              //Validate photo 1 PNG
