@@ -12,5 +12,11 @@ class GestionAviss extends Controller {
 
         $this->view('gestion_avis', $data);
     }
+
+    public function deleteavis($id){
+        
+        $this->userModel->deleteavis($id);
+        $this->gestionavis();
+    }
   
 }

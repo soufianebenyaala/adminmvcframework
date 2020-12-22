@@ -1,5 +1,6 @@
 <?php require "include/top_header.php"; ?>
-<?php require "include/header.php"; ?>
+<?php require "include/header.php";
+?>
 
 <div class="content-container">
     <?php require "include/navbar.php"; ?>
@@ -51,9 +52,8 @@
                                     echo '<td>'.$tab->ville.'</td>';
                                     echo '<td>'.$tab->telephone.'</td>';
                                     if($tab->sexe == 'H'){echo '<td>Homme</td>';}else{echo '<td>Femme</td>';}
-                                    
                                     echo '<td>'.$tab->verifyAccount.'</td>';
-                                    echo "<td><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></td>";
+                                    echo "<td><a href='".URLROOT."GestionMembres/deletemembre/$tab->id_membre'><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></a></td>";
                                     echo '</tr>';
                                 }
                                 ?>

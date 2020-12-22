@@ -47,12 +47,15 @@
                                     echo '<td>'.$tab->capacite .'</td>';
                                     echo '<td>'.$tab->categorie.'</td>';
                                     echo '<td>'.$tab->addresse .'</td>';
-                                    echo "<td><button class='main-btn'><i class='fa fa-edit' style='font-size:24px;'></i></button></td>";
-                                    echo "<td><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></td>";
+                                    echo "<td><a href='".URLROOT."GestionSalles/gotoeditsallepage/$tab->id_salle'>
+                                    <button type='button' class='main-btn' data-toggle='modal' data-target='#Modaleditsalle' data-whatever='@fat'>
+                                    <i class='fa fa-edit d' style='font-size:24px;'></i>
+                                    </button>
+                                    </a></td>";
+                                    echo "<td><a href='".URLROOT."GestionSalles/deletesalle/$tab->id_salle'><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></a></td>";
                                     echo '</tr>';
                                 }
                                 ?>
-                            
 
                             </tbody>
                         </table>
@@ -89,14 +92,14 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="content-block">
 
-                        <form class="form-vertical" method="POST" action="<?=URLROOT; ?>GestionSalles/gestionsalle">
+                        <form class="form-vertical" method="POST" action="<?=URLROOT; ?>GestionSalles/gestionsalle" enctype="multipart/form-data">
                             <div class="block-content">
 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">title</label>
                                     <input type="text" class="form-control" name="title" id="exampleInputEmail1"
                                         placeholder="Enter title">
-                                        <?php 
+                                    <?php 
                                   if(!empty($data['titleEORRE']))
                                  { echo"<p style='color:red;'>
                                    ".$data['titleEORRE']."
@@ -107,7 +110,7 @@
                                     <label for="exampleInputPassword1">description</label>
                                     <textarea type="text" class="form-control" rows="5" name="description"
                                         id="exampleInputPassword1" placeholder="description"></textarea>
-                                        <?php 
+                                    <?php 
                                   if(!empty($data['descriptionEORRE']))
                                  { echo"<p style='color:red;'>
                                    ".$data['descriptionEORRE']."
@@ -118,7 +121,7 @@
                                     <label for="exampleInputEmail1">address</label>
                                     <input type="text" class="form-control" name="address" id="exampleInputEmail1"
                                         placeholder="Enter address">
-                                        <?php 
+                                    <?php 
                                   if(!empty($data['addressEORRE']))
                                  { echo"<p style='color:red;'>
                                    ".$data['addressEORRE']."
@@ -137,7 +140,7 @@
                                     <label for="exampleInputEmail1">city</label>
                                     <input type="text" class="form-control" name="city" id="exampleInputEmail1"
                                         placeholder="Enter city">
-                                        <?php 
+                                    <?php 
                                   if(!empty($data['cityEORRE']))
                                  { echo"<p style='color:red;'>
                                    ".$data['cityEORRE']."
@@ -148,7 +151,7 @@
                                     <label for="exampleInputFile">zip code</label>
                                     <input type="text" class="form-control" name="cp" id="exampleInputEmail1"
                                         placeholder="Enter zip code">
-                                        <?php 
+                                    <?php 
                                   if(!empty($data['cpEORRE']))
                                  { echo"<p style='color:red;'>
                                    ".$data['cpEORRE']."
@@ -162,27 +165,27 @@
                     <br>
                     <div class="content-block">
                         <div class="form-group">
-                        <div class="form-group">
-                                    <label for="exampleInputEmail1">capacity</label>
-                                    <input type="text" class="form-control" name="capacity" id="exampleInputEmail1"
-                                        placeholder="Enter capacity">
-                                        <?php 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">capacity</label>
+                                <input type="text" class="form-control" name="capacity" id="exampleInputEmail1"
+                                    placeholder="Enter capacity">
+                                <?php 
                                   if(!empty($data['capacityEORRE']))
                                  { echo"<p style='color:red;'>
                                    ".$data['capacityEORRE']."
                                 </p>";}
                                 ?>
-                                </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="exampleInputFile">category</label>
-                                    <select name="category" class="form-control">
-                                        <option value="Conférence, Convention">Conférence, Convention</option>
-                                        <option value="Réunion, Formation">Réunion, Formation</option>
-                                        <option value="Soirée entreprise">Soirée d'entreprise</option>
-                                        <option value="Séminaire résidentiel">Séminaire résidentiel</option>
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">category</label>
+                                <select name="category" class="form-control">
+                                    <option value="Conférence, Convention">Conférence, Convention</option>
+                                    <option value="Réunion, Formation">Réunion, Formation</option>
+                                    <option value="Soirée entreprise">Soirée d'entreprise</option>
+                                    <option value="Séminaire résidentiel">Séminaire résidentiel</option>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">input photo 1200x675</label>
                                 <input type="file" id="exampleInputFile" name="photo_1">
@@ -234,7 +237,7 @@
 
                     <div class="block-footer">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Sign up</button>
+                            <button type="submit" class="btn btn-primary">confirmer</button>
                         </div>
                     </div>
                     </form>

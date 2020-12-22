@@ -5,11 +5,10 @@
     <?php require "include/navbar.php"; ?>
     <div class="container-fluid">
 
-
-        <div class="row">
+    <div class="row">
             <div class="col-xs-12">
                 <span class="page-title">
-                    <h4>Avis</h4>
+                    <h4>Commande</h4>
                 </span>
             </div>
         </div>
@@ -21,27 +20,18 @@
                         <table id="example" class="table table-striped" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th>id avis</th>
+                                    <th>id commande</th>
                                     <th>id membre</th>
-                                    <th>id salle</th>
-                                    <th>note</th>
-                                    <th>note</th>
-                                    <th>date</th>
-                                    <th>message</th>
-                                    <th>delete</th>
+                                    <th>montant</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <?php 
                                 foreach( $data['getdata'] as $tab){
                                     echo '<tr>';
-                                    echo '<td>'.$tab->id_avis.'</td>';
+                                    echo '<td>'.$tab->id_commande.'</td>';
                                     echo '<td>'.$tab->id_membre.'</td>';
-                                    echo '<td>'.$tab->id_salle.'</td>';
-                                    echo '<td>'.$tab->note.'</td>';
-                                    echo '<td>'.$tab->date.'</td>';
-                                    echo '<td>'.$tab->messege.'</td>';
-                                    echo "<td>a href='".URLROOT."GestionAviss/deleteavis/$tab->id_avis'><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></a></td>";
+                                    echo '<td>'.$tab->montant.'</td>';
                                     echo '</tr>';
                                 }
                                 ?>
@@ -70,5 +60,7 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>

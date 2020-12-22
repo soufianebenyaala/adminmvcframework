@@ -8,6 +8,9 @@
     //APP ROOT
     define('APPROOT', dirname(dirname(__FILE__)));
 
+    //IMG ROOT
+    define('IMGROOT',  "C:/xampp/htdocs/mvcframework/" );
+
     //URLROOT (Dynamic links)
     define('URLROOT', 'http://localhost/adminmvcframework/');
 

@@ -22,8 +22,8 @@
                             <thead>
                                 <tr>
                                     <th>id produit</th>
+                                    <th>date de depart</th>
                                     <th>date d'arrivée</th>
-                                    <th>date de date</th>
                                     <th>id salle</th>
                                     <th>prix</th>
                                     <th>etat</th>
@@ -36,13 +36,13 @@
                                 foreach( $data['getproduitdata'] as $tab){
                                     echo '<tr>';
                                     echo '<td>'.$tab->id_produit .'</td>';
-                                    echo '<td>'.$tab->date_arrivee.'</td>';
                                     echo '<td>'.$tab->date_depart.'</td>';
+                                    echo '<td>'.$tab->date_arrivee.'</td>';
                                     echo '<td>'.$tab->id_salle.'</td>';
                                     echo '<td>'.$tab->prix.'</td>';
                                     echo '<td>'.$tab->etat.'</td>';
-                                    echo "<td><button class='main-btn'><i class='fa fa-edit' style='font-size:24px;'></i></button></td>";
-                                    echo "<td><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></td>";
+                                    echo "<td><a href='".URLROOT."GestionProduits/editproduit/$tab->id_produit'><button class='main-btn'><i class='fa fa-edit' style='font-size:24px;'></i></button></a></td>";
+                                    echo "<td><a href='".URLROOT."GestionProduits/deleteproduit/$tab->id_produit'><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></a></td>";
                                     echo '</tr>';
                                 }
                                 ?>
@@ -88,11 +88,23 @@
                                     <label for="exampleInputEmail1">date de depart</label>
                                     <input type="date" class="form-control" id="exampleInputEmail1" name="date_depart"
                                         placeholder="Enter title">
+                                        <?php 
+                                  if(!empty($data['date_departEORRE']))
+                                 { echo"<div class='alert alert-danger' role='alert'>
+                                   ".$data['date_departEORRE']."
+                                </div>";}
+                                ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">date d'arrivée</label>
                                     <input type="date" class="form-control" id="exampleInputPassword1" name="date_arrivee"
                                         placeholder="description">
+                                        <?php 
+                                  if(!empty($data['date_arriveeEORRE']))
+                                 { echo"<div class='alert alert-danger' role='alert'>
+                                   ".$data['date_arriveeEORRE']."
+                                </div>";}
+                                ?>
                                 </div>
                             </div>
                     </div>
@@ -120,6 +132,12 @@
                                 <label for="exampleInputEmail1">prix</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" name="prix"
                                     placeholder="Enter capacity">
+                                    <?php 
+                                  if(!empty($data['prixEORRE']))
+                                 { echo"<div class='alert alert-danger' role='alert'>
+                                   ".$data['prixEORRE']."
+                                </div>";}
+                                ?>
                             </div>
 
                         </div>

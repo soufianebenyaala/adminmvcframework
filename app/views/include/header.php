@@ -45,25 +45,13 @@
                 </div>
             </a>
         </li>
-        
-        <li class="submenu dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
+        <li class="submenu">
+            <a href="<?=URLROOT; ?>GestionCommandes/gestioncommande">
                 <div>
-                    <i class="menu-icon fa fa-magic"></i>
-                    <span class="menu-title">Custom Elements</span>
+                    <i class="menu-icon fa fa-file-text-o"></i>
+                    <span class="menu-title">Gestion des commandes</span>
                 </div>
             </a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="custom-dashboard.html">
-                        <div>
-                            <i class="menu-icon fa fa-bar-chart"></i>
-                            <span class="menu-sub-title">Dashboard</span>
-                        </div>
-                    </a>
-                </li>
-            </ul>
         </li>
     </ul>
 </div>

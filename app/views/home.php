@@ -15,7 +15,7 @@
                 <div class="col-xs-12">
 
                     <ol class="breadcrumb">
-                        <li><a href="#">Home</a>
+                        <li><a href="<?=URLROOT; ?>home/home">Home</a>
                         </li>
                         <li class="active">Dashboard</a>
                         </li>

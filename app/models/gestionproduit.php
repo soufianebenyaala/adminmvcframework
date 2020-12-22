@@ -40,15 +40,38 @@ class gestionproduit {
     
     }
 
-                //Find user by email. Email is passed in by the Controller.
-                public function affichesalleData() {
+     //Find user by email. Email is passed in by the Controller.
+    public function affichesalleData() {
                     //Prepared statement
-                    $this->db->query('SELECT * FROM salle');
+        $this->db->query('SELECT * FROM salle');
                 
-                    $res=$this->db->resultSet();
+        $res=$this->db->resultSet();
                         
-                    return $res;
+        return $res;
         
-                    }
+    }
+
+    public function getProduitDataById($id){
+            //Prepared statement
+    $this->db->query('SELECT * FROM produit WHERE id_produit = :id');
+
+    $this->db->bind(':id', $id);
+
+    $res=$this->db->resultSet();
+
+    return $res;
+    }
+
+    public function deleteproduit($id){
+        $this->db->query('DELETE FROM produit WHERE id_produit = :id');
+
+        $this->db->bind(':id', $id);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
