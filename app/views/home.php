@@ -1,6 +1,77 @@
 <?php require "include/top_header.php"; ?>
-<?php require "include/header.php"; ?>
+<?php require "include/header.php"; 
+?>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
 
+            <?php
+            echo "['Membre',".$data['nombre_de_membre'][0]->nombre_de_membre."],";
+            echo "['Mail',1],";
+            echo "['Commande',".$data['nombre_de_commande'][0]->nombre_de_commande."]," ;
+            echo "['Product View',".$data['nombre_de_views']."]," ;
+           
+        ?>
+
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.6,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var d = new Date();
+        var n = d.getFullYear();
+        var data = google.visualization.arrayToDataTable([
+            [ ''+n, 'commande', 'gagne','Produit'],
+            
+            <?php
+            echo "['January',".$data[1][0]->nombreCommandeParMois.",".$data['mois1'].",".$data["produitparmois1"]."],";
+            echo "['February',".$data[2][0]->nombreCommandeParMois.",".$data['mois2'].",".$data["produitparmois2"]."],";
+            echo "['March',".$data[3][0]->nombreCommandeParMois.",".$data['mois3'].",".$data["produitparmois3"]."]," ;
+            echo "['April',".$data[4][0]->nombreCommandeParMois.",".$data['mois4'].",".$data["produitparmois4"]."]," ;
+            echo "['May',".$data[5][0]->nombreCommandeParMois.",".$data['mois5'].",".$data["produitparmois5"]."],";
+            echo "['June',".$data[6][0]->nombreCommandeParMois.",".$data['mois6'].",".$data["produitparmois6"]."],";
+            echo "['July',".$data[7][0]->nombreCommandeParMois.",".$data['mois7'].",".$data["produitparmois7"]."]," ;
+            echo "['august',".$data[8][0]->nombreCommandeParMois.",".$data['mois8'].",".$data["produitparmois8"]."]," ;
+            echo "['september',".$data[9][0]->nombreCommandeParMois.",".$data['mois9'].",".$data["produitparmois9"]."],";
+            echo "['Octobre',".$data[10][0]->nombreCommandeParMois.",".$data['mois10'].",".$data["produitparmois10"]."],";
+            echo "['November',".$data[11][0]->nombreCommandeParMois.",".$data['mois11'].",".$data["produitparmois11"]."]," ;
+            echo "['December',".$data[12][0]->nombreCommandeParMois.",".$data['mois12'].",".$data["produitparmois12"]."]," ;
+           
+        ?>
+        ]);
+
+
+        var options = {
+          chart: {
+            title: 'E-shop Performance',
+            subtitle: 'commande, gagne and Produit : '+ n,
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
+
+                  
 <div class="content-container">
     <?php require "include/navbar.php"; ?>
     <div class="container-fluid">
@@ -47,11 +118,11 @@
                             <div class="block-content">
                                 <span class="fa-stack fa-3x">
                                     <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-comments fa-stack-1x fa-inverse"></i>
+                                    <i class="fa fa fa-truck fa-stack-1x fa-inverse"></i>
                                 </span>
                                 <div class="banner-content">
-                                    <div class="title">23</div>
-                                    <div class="sub-title">New Message</div>
+                                    <div class="title"><?= $data['nombre_de_commande'][0]->nombre_de_commande ?></div>
+                                    <div class="sub-title">Commande</div>
                                 </div>
                                 <div class="clear-both"></div>
                             </div>
@@ -67,7 +138,7 @@
                                     <i class="fa fa-tags fa-stack-1x fa-inverse"></i>
                                 </span>
                                 <div class="banner-content">
-                                    <div class="title">280</div>
+                                    <div class="title"><?= $data['nombre_de_views'] ?></div>
                                     <div class="sub-title">Product View</div>
                                 </div>
                                 <div class="clear-both"></div>
@@ -82,11 +153,11 @@
                             <div class="block-content">
                                 <span class="fa-stack fa-3x">
                                     <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                    <i class="fa fa fa-user fa-stack-1x fa-inverse"></i>
                                 </span>
                                 <div class="banner-content">
-                                    <div class="title">16</div>
-                                    <div class="sub-title">Share</div>
+                                    <div class="title"><?= $data['nombre_de_membre'][0]->nombre_de_membre ?></div>
+                                    <div class="sub-title">Membre</div>
                                 </div>
                                 <div class="clear-both"></div>
                             </div>
@@ -100,7 +171,7 @@
                     <div class="banner-block white">
                         <div class="block-content">
                             <div class="block-title">Orders</div>
-                            <canvas id="dashboard-order-chart" style="padding:10px 30px 10px 10px;"></canvas>
+                            <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
                         </div>
                     </div>
                 </div>
@@ -109,13 +180,7 @@
                         <div class="block-content">
                             <div class="block-title">Stats</div>
                             <div class="row">
-                                <div class="col-md-9">
-                                    <canvas id="dashboard-stat-chart" style="padding:10px 30px 10px 10px;"></canvas>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div id="dashboard-stat-chart-legend" class="pie-legend"></div>
-                                </div>
+                            <div id="donutchart" style="width: 900px; height: 500px;"></div>
                             </div>
 
                         </div>
@@ -192,54 +257,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-users"></i> New Users</h3>
-                        </div>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                                <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

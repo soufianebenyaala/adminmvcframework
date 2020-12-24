@@ -8,7 +8,7 @@ class GestionMembres extends Controller {
         $data = [
             'getdata' => '',
         ];
-
+        $data['getdata'] = $this->userModel->affichemembreData();
         $this->view('affiche_membre', $data);
     }
     public function deletemembre($id) {

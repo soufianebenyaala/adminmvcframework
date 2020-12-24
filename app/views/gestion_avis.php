@@ -25,7 +25,6 @@
                                     <th>id membre</th>
                                     <th>id salle</th>
                                     <th>note</th>
-                                    <th>note</th>
                                     <th>date</th>
                                     <th>message</th>
                                     <th>delete</th>
@@ -38,10 +37,21 @@
                                     echo '<td>'.$tab->id_avis.'</td>';
                                     echo '<td>'.$tab->id_membre.'</td>';
                                     echo '<td>'.$tab->id_salle.'</td>';
-                                    echo '<td>'.$tab->note.'</td>';
-                                    echo '<td>'.$tab->date.'</td>';
-                                    echo '<td>'.$tab->messege.'</td>';
-                                    echo "<td>a href='".URLROOT."GestionAviss/deleteavis/$tab->id_avis'><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></a></td>";
+                                    echo '<td>';
+                                    ?>
+
+									<div class="review-rating ">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star<?php  if($tab->note == 1){echo '-o empty';}?>"></i>
+                                    <i class="fa fa-star<?php  if($tab->note == 1 OR $tab->note == 2 ){echo '-o empty';}?>"></i>
+                                    <i class="fa fa-star<?php  if($tab->note == 1 OR $tab->note == 2 OR $tab->note == 3 ){echo '-o empty';} ?>"></i>
+									<i class="fa fa-star<?php  if($tab->note == 1 OR $tab->note == 2 OR $tab->note == 3  OR $tab->note == 4 ){echo '-o empty';}?>"></i>
+									</div>
+
+                                   <?php echo '</td>';
+                                    echo '<td>'.$tab->date_enregistrement.'</td>';
+                                    echo '<td>'.$tab->commentaire.'</td>';
+                                    echo "<td><a href='".URLROOT."GestionAviss/deleteavis/$tab->id_avis'><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></a></td>";
                                     echo '</tr>';
                                 }
                                 ?>
