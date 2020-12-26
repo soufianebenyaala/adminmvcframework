@@ -94,25 +94,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <a href="#">
-                        <div class="banner-block red">
-                            <div class="block-content">
-                                <span class="banner-icon fa-stack fa-3x">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-inbox fa-stack-1x fa-inverse"></i>
-                                </span>
-                                <div class="banner-content">
-                                    <div class="title">50</div>
-                                    <div class="sub-title">New Mails</div>
-                                </div>
-                                <div class="clear-both"></div>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+ 
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <a href="#">
                         <div class="banner-block yellow">
                             <div class="block-content">
@@ -129,7 +112,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <a href="#">
                         <div class="banner-block green">
                             <div class="block-content">
@@ -147,7 +130,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <a href="#">
                         <div class="banner-block blue">
                             <div class="block-content">
@@ -187,76 +170,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-comments-o"></i> Last Message</h3>
-                        </div>
-                        <div class="panel-body no-padding">
-                            <ul class="message-list">
-                                <a href="#">
-                                    <li>
-                                        <img src="images/profile.jpg" class="profile-img pull-left">
-                                        <div class="message-block">
-                                            <div><span class="username">Tui2Tone</span> <span
-                                                    class="message-datetime">12 min ago</span>
-                                            </div>
-                                            <div class="message">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                </a>
-                                <a href="#">
-                                    <li>
-                                        <img src="images/profile.jpg" class="profile-img pull-left">
-                                        <div class="message-block">
-                                            <div><span class="username">Tui2Tone</span> <span
-                                                    class="message-datetime">15 min ago</span>
-                                            </div>
-                                            <div class="message">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                            </div>
-                                        </div>
-                                    </li>
-                                </a>
-                                <a href="#">
-                                    <li>
-                                        <img src="images/profile.jpg" class="profile-img pull-left">
-                                        <div class="message-block">
-                                            <div><span class="username">Tui2Tone</span> <span class="message-datetime">2
-                                                    hour ago</span>
-                                            </div>
-                                            <div class="message">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                            </div>
-                                        </div>
-                                    </li>
-                                </a>
-                                <a href="#">
-                                    <li>
-                                        <img src="images/profile.jpg" class="profile-img pull-left">
-                                        <div class="message-block">
-                                            <div><span class="username">Tui2Tone</span> <span class="message-datetime">1
-                                                    day ago</span>
-                                            </div>
-                                            <div class="message">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                            </div>
-                                        </div>
-                                    </li>
-                                </a>
-                                <a href="#" id="message-load-more">
-                                    <li class="text-center load-more">
-                                        <i class="fa fa-refresh"></i> load more..
-                                    </li>
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+           
+                    
+              
 
             </div>
         </div>
