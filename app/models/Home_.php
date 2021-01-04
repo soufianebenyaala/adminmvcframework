@@ -73,7 +73,7 @@ class Home_ {
     public function montant_de_commandeParMois($mois) {
 
     //Prepared statement
-    $this->db->query('SELECT montant as montantCommandeParMois FROM commande WHERE MONTH(date_commande) = :mois AND YEAR(date_commande) =:thisyear');
+    $this->db->query('SELECT sum(montant) as montant  FROM commande WHERE MONTH(date_commande) = :mois AND YEAR(date_commande) =:thisyear');
             
            
         
@@ -90,10 +90,8 @@ class Home_ {
     public function nombre_de_produitParMois($mois) {
 
             //Prepared statement
-    $this->db->query('SELECT lesproduits as monbreProduitParMois FROM commande WHERE MONTH(date_commande) = :mois AND YEAR(date_commande) =:thisyear');
-                    
-                   
-                
+    $this->db->query('SELECT lesproduits FROM commande WHERE MONTH(date_commande) = :mois AND YEAR(date_commande) =:thisyear');
+                         
     $this->db->bind(':mois',$mois);
     $this->db->bind(':thisyear',date('Y'));
                 
@@ -104,5 +102,17 @@ class Home_ {
     }
 
 
+    public function montantParMonth($mois){
+        //Prepared statement
+$this->db->query('SELECT sum(montant)as montant FROM commande WHERE  MONTH(date_commande) = :mois AND YEAR(date_commande) =:thisyear
+');
+
+$this->db->bind(':mois',$mois);
+$this->db->bind(':thisyear',date('Y'));
+     
+$res=$this->db->resultSet();
+         
+return $res; 
+}
 
 }

@@ -13,26 +13,29 @@ class home extends Controller {
         $produittotal = 0 ;
         for ($i=1 ; $i<13 ;$i++){
             $tabll = $this->userModel->nombre_de_produitParMois($i);
-            foreach($tabll as $set){
-                $produittotal = $produittotal + count(explode('.',$set->monbreProduitParMois));
-            }
+            
+            if(!empty($tabll)){
+                foreach($tabll as $set){
+                    $produittotal = $produittotal + count(explode('.',$set->lesproduits));    
+                }
+            }else{$produittotal = 0 ;}
         $data["produitparmois".$i] = $produittotal;
 
         }
-        //9adch fel da5lit fil mois
+        
         $montanttotal = 0;
         for ($i=1 ; $i<13 ;$i++){
-             $tabl = $this->userModel->montant_de_commandeParMois($i);
-             foreach($tabl as $set){
-                $montanttotal = $montanttotal + $set->montantCommandeParMois;
-            }
-        $data["mois".$i] = $montanttotal;
-    
-        }
-        //nombre de commande par mois
-        for ($i=1 ; $i<13 ;$i++){
+            //9adch fel da5lit fil mois
+            $data["mois".$i] = $this->userModel->montant_de_commandeParMois($i);
+            //nombre de commande par mois
             $data[$i] = $this->userModel->nombre_de_commandeCommandeParMois($i);
+            // montant par mois
+            if(!empty($this->userModel->montantParMonth($i)[0]->montant)){
+                $data['montantParMonth'.$i] = $this->userModel->montantParMonth($i)[0]->montant;
+            }else{$data['montantParMonth'.$i]  = 0;}
+            
         }
+        
         //nombre de membre que sont inscrit dans le site
         $data['nombre_de_membre'] = $this->userModel->nombre_de_membre();
         //nombre de commande total
@@ -54,6 +57,7 @@ class home extends Controller {
             $_SESSION['fullname'] =$fullname ;
             $_SESSION['email'] = $tab->email ;
         }
+
         $this->view('home', $data);
     }
   
