@@ -62,28 +62,12 @@
                     </form>
                 </div>
                 <div class="info-box">
-                   <span class="text-right"><a href="#">Forgot password?</a></span>
+                  
                    <div class="clear-both"></div>
                 </div>
         </div>
     </div>
-    <script type="text/javascript">
-       /* $(function() {
-            $("#login-form").submit(function() {
-                $("#login-progress").removeClass("hidden");
 
-                setTimeout(function(){
-                    $("#login-progress").addClass("hidden");
-                    $("#login-message").removeClass("hidden");
-                    setTimeout(function(){
-                        window.location = "<?=URLROOT?>users/login";
-                       // window.location.assign("users/login")
-                    },1000);
-                },1000);
-                return false;
-            });
-        });*/
-    </script>
 </body>
 
 </html>

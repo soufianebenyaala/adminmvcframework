@@ -5,8 +5,6 @@
     <?php require "include/navbar.php";
     ?>
     <div class="container-fluid">
-
-
         <div class="row">
             <div class="col-xs-12">
                 <span class="page-title">
@@ -15,84 +13,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="content-block">
-                    <div class="block-title">Datatable</div>
-                    <div class="block-content">
-                        <table id="example" class="table table-striped" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>title</th>
-                                    <th>description</th>
-                                    <th>pays</th>
-                                    <th>ville</th>
-                                    <th>zip code</th>
-                                    <th>address</th>
-                                    <th>capacity</th>
-                                    <th>category</th>
-                                    <th>edit</th>
-                                    <th>delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-                                foreach( $data['getdata'] as $tab){
-                                    echo '<tr>';
-                                    echo '<td>'.$tab->id_salle .'</td>';
-                                    echo '<td>'.$tab->pays .'</td>';
-                                    echo '<td>'.$tab->ville.'</td>';
-                                    echo '<td>'.$tab->cp.'</td>';
-                                    echo '<td>'.$tab->titre.'</td>';
-                                    echo '<td>'.$tab->description.'</td>';
-                                    echo '<td>'.$tab->capacite .'</td>';
-                                    echo '<td>'.$tab->categorie.'</td>';
-                                    echo '<td>'.$tab->addresse .'</td>';
-                                    echo "<td><a href='".URLROOT."GestionSalles/gotoeditsallepage/$tab->id_salle'>
-                                    <button type='button' class='main-btn' data-toggle='modal' data-target='#Modaleditsalle' data-whatever='@fat'>
-                                    <i class='fa fa-edit d' style='font-size:24px;'></i>
-                                    </button>
-                                    </a></td>";
-                                    echo "<td><a href='".URLROOT."GestionSalles/deletesalle/$tab->id_salle'><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></a></td>";
-                                    echo '</tr>';
-                                }
-                                ?>
-
-                            </tbody>
-                        </table>
-                        <nav class="table-pagination">
-                            <ul class="pagination">
-                                <li class="disabled"><a href="#" aria-label="Previous"><span
-                                            aria-hidden="true">«</span></a>
-                                </li>
-                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li><a href="#">2</a>
-                                </li>
-                                <li><a href="#">3</a>
-                                </li>
-                                <li><a href="#">4</a>
-                                </li>
-                                <li><a href="#">5</a>
-                                </li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="row">
             <div class="content-block">
-                <div class="block-title">from</div>
+                <div class="block-title">Add salle</div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="content-block">
 
-                        <form class="form-vertical" method="POST" action="<?=URLROOT; ?>GestionSalles/gestionsalle" enctype="multipart/form-data">
+                        <form class="form-vertical" method="POST" action="<?=URLROOT; ?>GestionSalles/gestionsalle"
+                            enctype="multipart/form-data">
                             <div class="block-content">
 
                                 <div class="form-group">
@@ -131,8 +58,11 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1" id="exampleInputPassword1">country</label>
                                     <select name="country" class="form-control">
-                                        <option value="Tunisie">Tunisie</option>
-                                        <option value="France">France</option>
+                                        <?php foreach ($data['country']  as $datta) {
+                                            foreach ($datta  as $dattta) { ?>
+                                        <option value="<?= $dattta ?>"><?= $dattta ?>
+                                        </option>
+                                        <?php }} ?>
                                     </select>
 
                                 </div>
@@ -241,6 +171,71 @@
                         </div>
                     </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="content-block">
+                    <div class="block-title">Datatable</div>
+                    <div class="block-content">
+                        <table id="example" class="table table-striped" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>id salle</th>
+                                    <th>title</th>
+                                    <th>pays</th>
+                                    <th>ville</th>
+                                    <th>zip code</th>
+                                    <th>description</th>
+                                    <th>capacity</th>
+                                    <th>category</th>
+                                    <th>address</th>
+                                    <th style="width:100px;">avis</th>
+                                    <th>edit</th>
+                                    <th>delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                foreach( $data['getdata'] as $tab){
+                                    echo '<tr>';
+                                    echo '<td>'.$tab->id_salle .'</td>';
+                                    echo '<td>'.$tab->titre.'</td>';
+                                    echo '<td>'.$tab->pays .'</td>';
+                                    echo '<td>'.$tab->ville.'</td>';
+                                    echo '<td>'.$tab->cp.'</td>';  
+                                    echo '<td>'.$tab->description.'</td>';
+                                    echo '<td>'.$tab->capacite .'</td>';
+                                    echo '<td>'.$tab->categorie.'</td>';
+                                    echo '<td>'.$tab->addresse .'</td>';
+                                    echo '<td>';
+                                    ?>
+                                <div class="review-rating ">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star<?php  if($tab->avis == 1){echo '-o empty';}?>"></i>
+                                    <i
+                                        class="fa fa-star<?php  if($tab->avis == 1 OR $tab->avis == 2 ){echo '-o empty';}?>"></i>
+                                    <i
+                                        class="fa fa-star<?php  if($tab->avis == 1 OR $tab->avis == 2 OR $tab->avis == 3 ){echo '-o empty';} ?>"></i>
+                                    <i
+                                        class="fa fa-star<?php  if($tab->avis == 1 OR $tab->avis == 2 OR $tab->avis == 3  OR $tab->avis == 4 ){echo '-o empty';}?>"></i>
+                                </div>
+
+                                <?php echo '</td>';
+                                    echo "<td><a href='".URLROOT."GestionSalles/gotoeditsallepage/$tab->id_salle'>
+                                    <button type='button' class='main-btn' data-toggle='modal' data-target='#Modaleditsalle' data-whatever='@fat'>
+                                    <i class='fa fa-edit d' style='font-size:24px;'></i>
+                                    </button>
+                                    </a></td>";
+                                    echo "<td><a href='".URLROOT."GestionSalles/deletesalle/$tab->id_salle'><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></a></td>";
+                                    echo '</tr>';
+                                }
+                                ?>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

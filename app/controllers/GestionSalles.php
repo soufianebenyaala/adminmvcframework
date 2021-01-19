@@ -169,6 +169,7 @@ class GestionSalles extends Controller {
                 }
             }
         }
+    $data['country']= $this->userModel->country();
     $data['getdata'] = $this->userModel->afficheData();
     $this->view('gestion_salle', $data);
         
@@ -376,6 +377,7 @@ class GestionSalles extends Controller {
                 }
             }
         }
+    $data['country']= $this->userModel->country();
     $data['getdata'] = $this->userModel->findsallebyid($id);
     $this->view('editsalle', $data);
         

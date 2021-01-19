@@ -22,6 +22,8 @@
                                 <tr>
                                     <th>id commande</th>
                                     <th>id membre</th>
+                                    <th>date commande</th>
+                                    <th>les produit par id</th>
                                     <th>montant</th>
                                 </tr>
                             </thead>
@@ -31,31 +33,15 @@
                                     echo '<tr>';
                                     echo '<td>'.$tab->id_commande.'</td>';
                                     echo '<td>'.$tab->id_membre.'</td>';
-                                    echo '<td>'.$tab->montant.'</td>';
+                                    echo '<td>'.$tab->date_commande.'</td>';
+                                    echo '<td>'.$tab->lesproduits.'</td>';
+                                    echo '<td> $'.$tab->montant.'</td>';
+                                  
                                     echo '</tr>';
                                 }
                                 ?>
                             </tbody>
                         </table>
-                        <nav class="table-pagination">
-                            <ul class="pagination">
-                                <li class="disabled"><a href="#" aria-label="Previous"><span
-                                            aria-hidden="true">«</span></a>
-                                </li>
-                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li><a href="#">2</a>
-                                </li>
-                                <li><a href="#">3</a>
-                                </li>
-                                <li><a href="#">4</a>
-                                </li>
-                                <li><a href="#">5</a>
-                                </li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>

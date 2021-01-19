@@ -13,72 +13,10 @@
                 </span>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="content-block">
-                    <div class="block-title">Datatable</div>
-                    <div class="block-content">
-                        <table id="example" class="table table-striped" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>id produit</th>
-                                    <th>date de depart</th>
-                                    <th>date d'arrivée</th>
-                                    <th>id salle</th>
-                                    <th>prix</th>
-                                    <th>etat</th>
-                                    <th>edit</th>
-                                    <th>delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php 
-                                foreach( $data['getproduitdata'] as $tab){
-                                    echo '<tr>';
-                                    echo '<td>'.$tab->id_produit .'</td>';
-                                    echo '<td>'.$tab->date_depart.'</td>';
-                                    echo '<td>'.$tab->date_arrivee.'</td>';
-                                    echo '<td>'.$tab->id_salle.'</td>';
-                                    echo '<td>'.$tab->prix.'</td>';
-                                    echo '<td>'.$tab->etat.'</td>';
-                                    echo "<td><a href='".URLROOT."GestionProduits/editproduit/$tab->id_produit'><button class='main-btn'><i class='fa fa-edit' style='font-size:24px;'></i></button></a></td>";
-                                    echo "<td><a href='".URLROOT."GestionProduits/deleteproduit/$tab->id_produit'><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></a></td>";
-                                    echo '</tr>';
-                                }
-                                ?>
-                            
-                            </tbody>
-                        </table>
-                        <nav class="table-pagination">
-                            <ul class="pagination">
-                                <li class="disabled"><a href="#" aria-label="Previous"><span
-                                            aria-hidden="true">«</span></a>
-                                </li>
-                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li><a href="#">2</a>
-                                </li>
-                                <li><a href="#">3</a>
-                                </li>
-                                <li><a href="#">4</a>
-                                </li>
-                                <li><a href="#">5</a>
-                                </li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
 
         <div class="row">
             <div class="content-block">
-            <div class="block-title">from</div>
+            <div class="block-title">Add produit</div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="content-block">
 
@@ -152,6 +90,52 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="content-block">
+                    <div class="block-title">Datatable</div>
+                    <div class="block-content">
+                        <table id="example" class="table table-striped" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>id produit</th>
+                                    <th>date de depart</th>
+                                    <th>date d'arrivée</th>
+                                    <th>id salle</th>
+                                    <th>prix</th>
+                                    <th>etat</th>
+                                    <th>view</th>
+                                    <th>edit</th>
+                                    <th>delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php 
+                                foreach( $data['getproduitdata'] as $tab){
+                                    echo '<tr>';
+                                    echo '<td>'.$tab->id_produit .'</td>';
+                                    echo '<td>'.$tab->date_depart.'</td>';
+                                    echo '<td>'.$tab->date_arrivee.'</td>';
+                                    echo '<td>'.$tab->id_salle.'</td>';
+                                    echo '<td>'.$tab->prix.'</td>';
+                                    echo '<td>'.$tab->etat.'</td>';
+                                    echo '<td>'.$tab->views.'</td>';
+                                    echo "<td><a href='".URLROOT."GestionProduits/editproduit/$tab->id_produit'><button class='main-btn'><i class='fa fa-edit' style='font-size:24px;'></i></button></a></td>";
+                                    echo "<td><a href='".URLROOT."GestionProduits/deleteproduit/$tab->id_produit'><button class='main-btn'><i class='fa fa-trash' style='font-size:24px;'></i></button></a></td>";
+                                    echo '</tr>';
+                                }
+                                ?>
+                            
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 </div>
 

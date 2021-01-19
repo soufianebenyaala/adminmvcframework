@@ -92,6 +92,15 @@ class gestionsalle {
             return false;
         }
     }
+    
+    public function country(){
+        //Prepared statement
+        $this->db->query('SELECT country_name FROM countries');
+
+        $res=$this->db->resultSet();
+                    
+        return $res;
+    }
 
 
 }
