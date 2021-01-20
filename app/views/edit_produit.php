@@ -12,7 +12,7 @@
                     <div class="content-block">
                     <?php  foreach( $data['getproduit'] as $dataa){ ?>
                         <form class="form-vertical" method="POST"
-                            action="<?=URLROOT; ?>GestionProduits/editproduit">
+                            action="<?=URLROOT; ?>GestionProduits/editproduit/<?= $dataa->id_produit ?>">
                             <div class="block-content">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">date de depart</label>

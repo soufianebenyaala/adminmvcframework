@@ -62,9 +62,7 @@ class GestionSalles extends Controller {
             //Validate title on letters
             if (empty($data['title'])){ 
                 $data['titleEORRE'] = 'Please enter title.';
-            } elseif (!preg_match($pseudoValidation, $data['title'])) {
-                $data['titleEORRE'] = 'title can only contain letters and numbre .';
-            }
+            } 
 
              //Validate photo 1 PNG
              if (empty($data['photo_1'])) {
